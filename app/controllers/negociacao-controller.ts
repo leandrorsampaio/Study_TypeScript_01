@@ -12,21 +12,30 @@ export class NegociacaoController {
         this.inputValor = document.querySelector('#valor');
     }
 
-    adiciona() {
-        //console.log(this.inputData);
-        //console.log(this.inputQuantidade);
-        //console.log(this.inpitValor);
+    // Apesar de nao ser obrigatorio,é uma boa pratica tipar os metodos com : 
+    // no caso tipando com void
+    adiciona(): void {
+        const negociacao = this.criaNegociacao();
+        console.log(negociacao);
 
+        this.limparFormulario();
+    }
 
+    criaNegociacao(): Negociacao {
         // precisa de uma regex pra mudar de 1111-11-11 para 1111,11,11
         const exp = /-/g;
         const date= new Date(this.inputData.value.replace(exp, ','));
         const quantidade = parseInt(this.inputQuantidade.value);
         const valor = parseFloat(this.inputValor.value); // Float pq pode ter casas decimais
-
-        const negociacao = new Negociacao(date, quantidade, valor);
-
-        console.log(negociacao);
-
+        return new Negociacao(date, quantidade, valor);
     }
+
+    // Isso é um método
+    limparFormulario(): void {
+        this.inputData.value = '';
+        this.inputQuantidade.value = '';
+        this.inputValor.value = '';
+        this.inputData.focus();
+    }
+
 }
