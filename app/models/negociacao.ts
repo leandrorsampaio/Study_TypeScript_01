@@ -1,11 +1,12 @@
 export class Negociacao {
 
     // atributos privados dessa classe somente
-    private _data;
-    private _quantidade;
-    private _valor;
+    private _data: Date;
+    private _quantidade: number;
+    private _valor: number;
 
-    constructor(data, quantidade, valor) {
+    // se nao colcoar o tipo ele fica como ANY
+    constructor(data: Date, quantidade: number, valor: number) {
         this._data = data;
         this._quantidade = quantidade;
         this._valor = valor;

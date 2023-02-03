@@ -2,14 +2,14 @@
 import { Negociacao } from "../models/negociacao.js";
 
 export class NegociacaoController {
-    private inputData;
-    private inputQuantidade;
-    private inpitValor;
+    private inputData: HTMLInputElement;
+    private inputQuantidade: HTMLInputElement;
+    private inputValor: HTMLInputElement;
 
     constructor() {
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
-        this.inpitValor = document.querySelector('#valor');
+        this.inputValor = document.querySelector('#valor');
     }
 
     adiciona() {
@@ -17,11 +17,14 @@ export class NegociacaoController {
         //console.log(this.inputQuantidade);
         //console.log(this.inpitValor);
 
-        const negociacao = new Negociacao(
-            this .inputData.value,
-            this .inputQuantidade.value,
-            this .inpitValor.value
-        );
+
+        // precisa de uma regex pra mudar de 1111-11-11 para 1111,11,11
+        const exp = /-/g;
+        const date= new Date(this.inputData.value.replace(exp, ','));
+        const quantidade = parseInt(this.inputQuantidade.value);
+        const valor = parseFloat(this.inputValor.value); // Float pq pode ter casas decimais
+
+        const negociacao = new Negociacao(date, quantidade, valor);
 
         console.log(negociacao);
 

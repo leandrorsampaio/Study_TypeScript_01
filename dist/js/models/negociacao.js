@@ -1,4 +1,5 @@
 export class Negociacao {
+    // se nao colcoar o tipo ele fica como ANY
     constructor(data, quantidade, valor) {
         this._data = data;
         this._quantidade = quantidade;
