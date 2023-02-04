@@ -12,6 +12,10 @@ export class Negociacoes {
     }
 
     lista(): Array<Negociacao> {
-        return this.negociacoes;
+
+        // esses colchetes são o spread operator.
+        // ele coloca os items da lista dentro de uma nova lista
+        // assim q lista pode ser modificada sem precisar modificar a original
+        return [...this.negociacoes];
     }
 }

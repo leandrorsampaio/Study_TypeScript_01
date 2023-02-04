@@ -1,7 +1,9 @@
 // tem que colocar o .JS no final senao não funciona
 import { Negociacao } from "../models/negociacao.js";
+import { Negociacoes } from "../models/negociacoes.js";
 export class NegociacaoController {
     constructor() {
+        this.negociacoes = new Negociacoes(); // Nao precisa da tipagem pq ja esta espeficicado no new
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
@@ -10,8 +12,10 @@ export class NegociacaoController {
     // no caso tipando com void
     adiciona() {
         const negociacao = this.criaNegociacao();
-        console.log(negociacao);
+        this.negociacoes.adiciona(negociacao);
         this.limparFormulario();
+        //console.log(negociacao);
+        console.log(this.negociacoes.lista());
     }
     criaNegociacao() {
         // precisa de uma regex pra mudar de 1111-11-11 para 1111,11,11
