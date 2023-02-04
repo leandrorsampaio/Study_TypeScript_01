@@ -8,10 +8,13 @@ export class Negociacoes {
     adiciona(negociacao) {
         this.negociacoes.push(negociacao);
     }
+    //lista(): Array<Negociacao> {
+    // esses colchetes são o spread operator.
+    // ele coloca os items da lista dentro de uma nova lista
+    // assim q lista pode ser modificada sem precisar modificar a original
+    //return [...this.negociacoes];
+    //}
     lista() {
-        // esses colchetes são o spread operator.
-        // ele coloca os items da lista dentro de uma nova lista
-        // assim q lista pode ser modificada sem precisar modificar a original
         return [...this.negociacoes];
     }
 }
