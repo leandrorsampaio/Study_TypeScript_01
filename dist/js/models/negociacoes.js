@@ -3,6 +3,7 @@ export class Negociacoes {
         // dizendo entra <> qual o tipo do array. 
         // Dizendo q eu quero apenas negociacao
         // Generic "Array<T>"
+        // Array<Negociacao> é mesmo que Negociacao[]
         this.negociacoes = [];
     }
     adiciona(negociacao) {
@@ -15,6 +16,7 @@ export class Negociacoes {
     //return [...this.negociacoes];
     //}
     // ready only array to make sure will not be modified
+    // ReadonlyArray<Negociacao> É O MESMO Q readonly Negociacao[]
     lista() {
         return this.negociacoes;
     }
