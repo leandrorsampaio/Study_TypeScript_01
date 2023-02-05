@@ -18,7 +18,8 @@ export class Negociacoes {
         //return [...this.negociacoes];
     //}
 
+    // ready only array to make sure will not be modified
     lista(): ReadonlyArray<Negociacao> {
-        return [...this.negociacoes];
+        return this.negociacoes;
     }
 }

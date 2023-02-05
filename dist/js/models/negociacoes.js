@@ -14,7 +14,8 @@ export class Negociacoes {
     // assim q lista pode ser modificada sem precisar modificar a original
     //return [...this.negociacoes];
     //}
+    // ready only array to make sure will not be modified
     lista() {
-        return [...this.negociacoes];
+        return this.negociacoes;
     }
 }
