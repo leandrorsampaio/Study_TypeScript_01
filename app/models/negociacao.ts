@@ -1,16 +1,12 @@
 export class Negociacao {
 
-    // atributos privados dessa classe somente
-    private _data: Date;
-    private _quantidade: number;
-    private _valor: number;
-
     // se nao colcoar o tipo ele fica como ANY
-    constructor(data: Date, quantidade: number, valor: number) {
-        this._data = data;
-        this._quantidade = quantidade;
-        this._valor = valor;
-    }
+    constructor(
+        // atributos privados dessa classe somente
+        private _data: Date, 
+        private _quantidade: number, 
+        private _valor: number
+    ) {}
 
     // GETTER: ele tem acesso aos atributos privados da minha classe
     // quando chama um Getter vc nao pode atribuir nada, somente ler
