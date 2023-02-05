@@ -7,7 +7,8 @@ export class Negociacao {
         //private _quantidade: number, 
         //private _valor: number
         
-        public readonly data: Date, 
+        //public readonly data: Date,
+        public _data: Date, 
         public readonly quantidade: number, 
         public readonly valor: number
 
@@ -30,6 +31,15 @@ Agora as classes sao publicas mas readonly
         return this._valor;
     }
 */
+
+    get data(): Date {
+        //pramacao defensiva - faz uma copia identica
+        // e assim evita alteracoes na date original
+        // Basicamente um clone
+        const data = new Date(this._data.getTime())
+        return data;
+    }
+
     get volume(): number {
         return this.quantidade * this.valor;
     }

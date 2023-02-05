@@ -5,8 +5,9 @@ export class Negociacao {
     //private _data: Date, 
     //private _quantidade: number, 
     //private _valor: number
-    data, quantidade, valor) {
-        this.data = data;
+    //public readonly data: Date,
+    _data, quantidade, valor) {
+        this._data = _data;
         this.quantidade = quantidade;
         this.valor = valor;
     }
@@ -27,6 +28,13 @@ export class Negociacao {
             return this._valor;
         }
     */
+    get data() {
+        //pramacao defensiva - faz uma copia identica
+        // e assim evita alteracoes na date original
+        // Basicamente um clone
+        const data = new Date(this._data.getTime());
+        return data;
+    }
     get volume() {
         return this.quantidade * this.valor;
     }
